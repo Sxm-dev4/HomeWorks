@@ -1,8 +1,8 @@
 import React from "react";
 
-// React.memo evita renders innecesarios si las props no cambian
+
 const Son = React.memo(({ numero, increment }) => {
-  console.log("again reloaded..."); // para ver cuándo se vuelve a renderizar
+  console.log("again reloaded..."); 
 
   return (
     <button
