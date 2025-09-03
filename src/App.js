@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Parent from './components/Challenge04/Parent';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Challenge 04</h1>
+        <p>Gestión de Categorías</p>
       </header>
+
+      <main style={{ minHeight: '100vh', paddingBottom: '40px' }}>
+        <Parent />
+      </main>
     </div>
   );
 }
