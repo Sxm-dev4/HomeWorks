@@ -191,7 +191,6 @@ function DoublyLinkedListPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="mb-8 flex justify-between items-center">
           <h1 className="text-4xl font-bold flex items-center gap-3">
             <Globe className="text-cyan-400" />
@@ -214,7 +213,6 @@ function DoublyLinkedListPage() {
           </div>
         </div>
 
-        {/* Browser Mockup */}
         <div className="bg-gray-900 rounded-t-xl border border-gray-700">
           <div className="bg-gray-800 rounded-t-xl p-3 flex items-center gap-3">
             <div className="flex gap-2">
@@ -254,7 +252,6 @@ function DoublyLinkedListPage() {
             </div>
           </div>
 
-          {/* Current Page Content */}
           {currentPage && (
             <div className="p-8 bg-gradient-to-b from-gray-800 to-gray-900 min-h-[300px]">
               <div className="max-w-2xl mx-auto text-center space-y-4">
@@ -276,7 +273,6 @@ function DoublyLinkedListPage() {
           )}
         </div>
 
-        {/* History Timeline */}
         <div className="mt-8 bg-black/30 backdrop-blur-lg rounded-xl p-6 border border-white/10">
           <h3 className="text-xl font-semibold mb-4 text-cyan-400 flex items-center gap-2">
             <History size={20} />
