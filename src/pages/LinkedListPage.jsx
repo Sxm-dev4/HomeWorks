@@ -127,7 +127,6 @@ function LinkedListPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <div className="mb-8 flex justify-between items-center">
           <h1 className="text-4xl font-bold flex items-center gap-3">
             <Music className="text-yellow-400" />
@@ -151,7 +150,6 @@ function LinkedListPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Player */}
           <div className="bg-black/30 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
             <h2 className="text-2xl font-semibold mb-6 text-yellow-400">Now Playing</h2>
             
@@ -195,7 +193,6 @@ function LinkedListPage() {
             )}
           </div>
 
-          {/* Playlist */}
           <div className="bg-black/30 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
             <h2 className="text-2xl font-semibold mb-6 text-yellow-400 flex items-center gap-2">
               <List size={24} />
