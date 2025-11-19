@@ -1,0 +1,81 @@
+
+$primary: #db6934;
+$secondary: #000000;
+$danger: #e74c3c;
+$bg: #f5f5f527;
+$card-bg: #ffffff;
+
+
+$padding: 16px;
+
+
+@mixin card {
+  background: $card-bg;
+  padding: $padding;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+@mixin button-style($color) {
+  background: $color;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+body {
+  background: $bg;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+section {
+  @include card;
+}
+
+input, select {
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid $secondary;
+  border-radius: 6px;
+}
+
+button {
+  @include button-style($primary);
+}
+
+button.delete {
+  @include button-style($danger);
+}
+
+h1 {
+  color: $primary;
+  margin-bottom: 20px;
+}
+
+h2, h3, h4 {
+  color: darken($primary, 10%);
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding-left: 16px;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+
+.tree ul {
+  padding-left: 20px;
+  border-left: 2px dashed $secondary;
+  margin-left: 10px;
+}
