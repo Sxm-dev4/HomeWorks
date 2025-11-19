@@ -1,0 +1,120 @@
+.searchPanel {
+  @mixin card-style {
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  :global(.theme-dark) & {
+    @include card-style;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+  }
+
+  :global(.theme-light) & {
+    @include card-style;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid;
+  transition: all 0.3s ease;
+  
+  :global(.theme-dark) & {
+    background-color: #334155;
+    border-color: #475569;
+    color: white;
+    
+    &:focus {
+      border-color: #3b82f6;
+      outline: none;
+    }
+  }
+  
+  :global(.theme-light) & {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+    color: #0f172a;
+    
+    &:focus {
+      border-color: #2563eb;
+      outline: none;
+    }
+  }
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  
+  :global(.theme-dark) & {
+    background-color: #3b82f6;
+    color: white;
+    
+    &:hover {
+      background-color: #2563eb;
+      transform: translateY(-1px);
+    }
+  }
+  
+  :global(.theme-light) & {
+    background-color: #2563eb;
+    color: white;
+    
+    &:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.result {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid;
+  
+  &.found {
+    :global(.theme-dark) & {
+      background-color: rgba(16, 185, 129, 0.1);
+      border-color: #10b981;
+    }
+    
+    :global(.theme-light) & {
+      background-color: rgba(16, 185, 129, 0.1);
+      border-color: #059669;
+    }
+  }
+  
+  &.notFound {
+    :global(.theme-dark) & {
+      background-color: rgba(239, 68, 68, 0.1);
+      border-color: #ef4444;
+    }
+    
+    :global(.theme-light) & {
+      background-color: rgba(239, 68, 68, 0.1);
+      border-color: #dc2626;
+    }
+  }
+}

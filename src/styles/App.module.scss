@@ -1,0 +1,182 @@
+$color-primary: #3b82f6;
+$color-secondary: #8b5cf6;
+$color-success: #10b981;
+$color-danger: #ef4444;
+$color-warning: #f59e0b;
+
+$dark-bg-primary: #0f172a;
+$dark-bg-secondary: #1e293b;
+$dark-text: #f1f5f9;
+$dark-border: #334155;
+
+$light-bg-primary: #f8fafc;
+$light-bg-secondary: #ffffff;
+$light-text: #0f172a;
+$light-border: #e2e8f0;
+
+$spacing-small: 0.5rem;
+$spacing-medium: 1rem;
+$spacing-large: 1.5rem;
+$spacing-xlarge: 2rem;
+
+$border-radius: 0.75rem;
+$transition-speed: 0.3s;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-base {
+  border-radius: $border-radius;
+  padding: $spacing-large;
+  transition: all $transition-speed ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@mixin button-base {
+  padding: $spacing-small $spacing-medium;
+  border-radius: calc($border-radius / 2);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all $transition-speed ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin gradient-text($color1, $color2) {
+  background: linear-gradient(135deg, $color1, $color2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Funciones
+@function spacing($multiplier) {
+  @return $spacing-medium * $multiplier;
+}
+
+// Tema Oscuro
+.theme-dark {
+  .app-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, $dark-bg-primary 0%, $dark-bg-secondary 100%);
+    color: $dark-text;
+    padding: $spacing-xlarge;
+  }
+
+  .app-header {
+    text-align: center;
+    margin-bottom: $spacing-xlarge;
+  }
+
+  .app-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-small;
+    @include gradient-text($color-primary, $color-secondary);
+  }
+
+  .app-subtitle {
+    color: #94a3b8;
+    font-size: 1rem;
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-large;
+    margin-bottom: $spacing-xlarge;
+  }
+}
+
+// Tema Claro
+.theme-light {
+  .app-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, $light-bg-primary 0%, #e0e7ff 100%);
+    color: $light-text;
+    padding: $spacing-xlarge;
+  }
+
+  .app-header {
+    text-align: center;
+    margin-bottom: $spacing-xlarge;
+  }
+
+  .app-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-small;
+    @include gradient-text(#2563eb, #7c3aed);
+  }
+
+  .app-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-large;
+    margin-bottom: $spacing-xlarge;
+  }
+}
+
+
+.loading {
+  @include flex-center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  color: $color-primary;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .theme-dark,
+  .theme-light {
+    .app-container {
+      padding: $spacing-medium;
+    }
+
+    .app-title {
+      font-size: 2rem;
+    }
+
+    .controls-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-container {
+  animation: fadeIn 0.5s ease-out;
+}

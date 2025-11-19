@@ -1,0 +1,56 @@
+.insertPanel {
+  @mixin card-style {
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  :global(.theme-dark) & {
+    @include card-style;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+  }
+
+  :global(.theme-light) & {
+    @include card-style;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+}
+
+.insertButton {
+  :global(.theme-dark) & {
+    background-color: #8b5cf6;
+    
+    &:hover {
+      background-color: #7c3aed;
+    }
+  }
+  
+  :global(.theme-light) & {
+    background-color: #7c3aed;
+    
+    &:hover {
+      background-color: #6d28d9;
+    }
+  }
+}
+
+.hint {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  
+  :global(.theme-dark) & {
+    color: #94a3b8;
+  }
+  
+  :global(.theme-light) & {
+    color: #64748b;
+  }
+}

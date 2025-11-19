@@ -1,0 +1,213 @@
+$color-primary: #3b82f6;
+$color-secondary: #8b5cf6;
+$color-success: #10b981;
+$color-danger: #ef4444;
+
+$dark-bg: #1e293b;
+$dark-border: #334155;
+$light-bg: #ffffff;
+$light-border: #e2e8f0;
+
+// Mixins
+@mixin card {
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@mixin button($bg-color, $hover-color) {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: $bg-color;
+  color: white;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: $hover-color;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Tema Oscuro
+:global(.theme-dark) {
+  .storagePanel {
+    @include card;
+    background-color: $dark-bg;
+    border: 1px solid $dark-border;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: $color-primary;
+  }
+
+  .section {
+    margin-bottom: 1.25rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .sectionTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .buttonGroup {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btnPrimary {
+    @include button($color-primary, darken($color-primary, 10%));
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .btnSecondary {
+    @include button($color-secondary, darken($color-secondary, 10%));
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .btnDanger {
+    @include button($color-danger, darken($color-danger, 10%));
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .themeButtons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .themeBtn {
+    @include button(#475569, #334155);
+    flex: 1;
+    
+    &.active {
+      background-color: $color-primary;
+      
+      &:hover {
+        background-color: darken($color-primary, 10%);
+      }
+    }
+  }
+}
+
+// Tema Claro
+:global(.theme-light) {
+  .storagePanel {
+    @include card;
+    background-color: $light-bg;
+    border: 1px solid $light-border;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2563eb;
+  }
+
+  .section {
+    margin-bottom: 1.25rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .sectionTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .buttonGroup {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btnPrimary {
+    @include button(#2563eb, #1d4ed8);
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .btnSecondary {
+    @include button(#7c3aed, #6d28d9);
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .btnDanger {
+    @include button(#dc2626, #b91c1c);
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .themeButtons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .themeBtn {
+    @include button(#cbd5e1, #94a3b8);
+    flex: 1;
+    
+    &.active {
+      background-color: #2563eb;
+      
+      &:hover {
+        background-color: #1d4ed8;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 640px) {
+  .buttonGroup {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+
+  .themeButtons {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+    }
+  }
+}
